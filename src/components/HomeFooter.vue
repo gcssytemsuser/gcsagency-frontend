@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <!-- ========== Home1 Footer area Start============= -->
     <footer class="footer1">
     <div class="container">
@@ -120,6 +120,6 @@
 </template>
 <script setup lang="ts">
 </script>
-<style lang="">
+<style>
     
 </style>
