@@ -1,7 +1,10 @@
 <template>
   <!-- ========== Topbar Start============= -->
   <div class="top-bar2">
-    <p>Welcome Our Job Portal! <a href="bookmark.html">Save Jobs</a></p>
+    <p>
+      Welcome Our Job Portal!
+      <router-link to="bookmark.html">Save Jobs</router-link>
+    </p>
     <div class="top-bar-right">
       <div class="language-select">
         <img src="/assets/images/icon/flag-eng.svg" alt="image" /><span>Language</span>
@@ -33,7 +36,7 @@
       <div class="main-menu">
         <div class="mobile-logo-area d-lg-none d-flex justify-content-between align-items-center">
           <div class="mobile-logo-wrap">
-            <a href="index.html"><img alt="image" src="/assets/images/header1-logo.svg" /></a>
+            <router-link to="index.html"><img alt="image" src="/assets/images/header1-logo.svg" /></router-link>
           </div>
           <div class="menu-close-btn">
             <i class="bi bi-x-lg"></i>
@@ -42,8 +45,12 @@
         <ul class="menu-list">
           <ul class="menu-list">
             <li v-for="item in menuItems" :key="item.name" :class="menuClass(item)">
-              <router-link v-if="!item.children" :to="item.to">{{ item.name }}</router-link>
-              <a v-else href="#" class="drop-down">{{ item.name }}</a>
+              <router-link v-if="!item.children" :to="item.to">{{
+                item.name
+              }}</router-link>
+              <router-link v-else to="#" class="drop-down">{{
+                item.name
+              }}</router-link>
               <i v-if="item.children" class="bi bi-plus dropdown-icon"></i>
               <ul v-if="item.children" class="sub-menu">
                 <li v-for="child in item.children" :key="child.name">
@@ -63,13 +70,13 @@
               Sign In</router-link>
           </div>
           <div class="post-job-btn mb-30">
-            <a class="primry-btn-2 lg-btn" href="#">
+            <router-link class="primry-btn-2 lg-btn" to="#">
               <svg width="15" height="13" viewBox="0 0 15 13" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M10.1367 0H4.86329C4.66914 0 4.51173 0.151188 4.51173 0.337662V1.79366H1.43168C0.642247 1.79363 0 2.41049 0 3.16868V11.6249C0 12.3831 0.642247 13 1.43168 13H13.5683C14.3578 13 15 12.3831 15 11.6249V3.16868C15 2.41049 14.3578 1.79363 13.5683 1.79363H10.4883V0.337662C10.4883 0.15116 10.3309 0 10.1367 0ZM5.21485 0.675325H9.78518V1.79366H5.21485V0.675325ZM13.5683 12.3247H1.43168C1.02996 12.3247 0.703126 12.0108 0.703126 11.625V5.31469L5.6836 7.11899V8.14608C5.6836 8.33255 5.84102 8.48374 6.03517 8.48374H8.96486C9.15901 8.48374 9.31642 8.33255 9.31642 8.14608V7.11899L14.2969 5.31472V11.625C14.2969 12.0108 13.9701 12.3247 13.5683 12.3247ZM6.38673 7.80841V6.79543H8.6133V7.80841H6.38673ZM14.2969 3.16868V4.59294L9.3108 6.39926C9.28191 6.24073 9.13821 6.1201 8.96486 6.1201H6.03517C5.86182 6.1201 5.71812 6.2407 5.68923 6.39926L0.703126 4.59297V3.16868C0.703126 2.78284 1.02993 2.46896 1.43168 2.46896H13.5683C13.9701 2.46896 14.2969 2.78284 14.2969 3.16868ZM13.4071 11.0443C13.4071 11.2308 13.2497 11.382 13.0555 11.382H10.1697C9.97558 11.382 9.81816 11.2308 9.81816 11.0443C9.81816 10.8578 9.97558 10.7067 10.1697 10.7067H13.0555C13.2497 10.7067 13.4071 10.8578 13.4071 11.0443ZM1.89337 3.67202C1.89337 3.48555 2.05079 3.33436 2.24494 3.33436H4.09064C4.28479 3.33436 4.44221 3.48555 4.44221 3.67202C4.44221 3.8585 4.28479 4.00968 4.09064 4.00968H2.24494C2.05079 4.00968 1.89337 3.8585 1.89337 3.67202Z" />
               </svg>
               Post Job
-            </a>
+            </router-link>
           </div>
           <div class="social-area">
             <ul>
@@ -110,7 +117,8 @@
                     </div>
                     <div class="content">
                       <h6>
-                        <a href="#">Your application has accepted in 5 vacancies.</a>
+                        <router-link to="#">Your application has accepted in 5
+                          vacancies.</router-link>
                       </h6>
                       <span><img src="/assets/images/icon/clock-1.svg" alt="" /> 10
                         min ago</span>
@@ -122,7 +130,8 @@
                     </div>
                     <div class="content">
                       <h6>
-                        <a href="#">Your application has accepted in 5 vacancies.</a>
+                        <router-link to="#">Your application has accepted in 5
+                          vacancies.</router-link>
                       </h6>
                       <span><img src="/assets/images/icon/clock-1.svg" alt="" /> 10
                         min ago</span>
@@ -134,7 +143,8 @@
                     </div>
                     <div class="content">
                       <h6>
-                        <a href="#">Your application has accepted in 5 vacancies.</a>
+                        <router-link to="#">Your application has accepted in 5
+                          vacancies.</router-link>
                       </h6>
                       <span><img src="/assets/images/icon/clock-1.svg" alt="" /> 10
                         min ago</span>
@@ -142,7 +152,7 @@
                   </li>
                 </ul>
                 <div class="view-all">
-                  <a href="#">See All Notifications</a>
+                  <router-link to="#">See All Notifications</router-link>
                 </div>
               </div>
             </div>
@@ -160,12 +170,12 @@
           </li>
           <li class="d-md-flex d-none">
             <div class="post-job-btn">
-              <a class="primry-btn-2 lg-btn" href="job-post.html">Post Job
+              <router-link class="primry-btn-2 lg-btn" to="job-post.html">Post Job
                 <svg width="15" height="13" viewBox="0 0 15 13" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M10.1367 0H4.86329C4.66914 0 4.51173 0.151188 4.51173 0.337662V1.79366H1.43168C0.642247 1.79363 0 2.41049 0 3.16868V11.6249C0 12.3831 0.642247 13 1.43168 13H13.5683C14.3578 13 15 12.3831 15 11.6249V3.16868C15 2.41049 14.3578 1.79363 13.5683 1.79363H10.4883V0.337662C10.4883 0.15116 10.3309 0 10.1367 0ZM5.21485 0.675325H9.78518V1.79366H5.21485V0.675325ZM13.5683 12.3247H1.43168C1.02996 12.3247 0.703126 12.0108 0.703126 11.625V5.31469L5.6836 7.11899V8.14608C5.6836 8.33255 5.84102 8.48374 6.03517 8.48374H8.96486C9.15901 8.48374 9.31642 8.33255 9.31642 8.14608V7.11899L14.2969 5.31472V11.625C14.2969 12.0108 13.9701 12.3247 13.5683 12.3247ZM6.38673 7.80841V6.79543H8.6133V7.80841H6.38673ZM14.2969 3.16868V4.59294L9.3108 6.39926C9.28191 6.24073 9.13821 6.1201 8.96486 6.1201H6.03517C5.86182 6.1201 5.71812 6.2407 5.68923 6.39926L0.703126 4.59297V3.16868C0.703126 2.78284 1.02993 2.46896 1.43168 2.46896H13.5683C13.9701 2.46896 14.2969 2.78284 14.2969 3.16868ZM13.4071 11.0443C13.4071 11.2308 13.2497 11.382 13.0555 11.382H10.1697C9.97558 11.382 9.81816 11.2308 9.81816 11.0443C9.81816 10.8578 9.97558 10.7067 10.1697 10.7067H13.0555C13.2497 10.7067 13.4071 10.8578 13.4071 11.0443ZM1.89337 3.67202C1.89337 3.48555 2.05079 3.33436 2.24494 3.33436H4.09064C4.28479 3.33436 4.44221 3.48555 4.44221 3.67202C4.44221 3.8585 4.28479 4.00968 4.09064 4.00968H2.24494C2.05079 4.00968 1.89337 3.8585 1.89337 3.67202Z" />
                 </svg>
-              </a>
+              </router-link>
             </div>
           </li>
         </ul>
@@ -178,8 +188,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { ref } from "vue";
+import { useRoute } from "vue-router";
 
 interface MenuItemWithoutChildren {
   name: string;
@@ -193,69 +203,69 @@ interface MenuItemWithChildren {
 }
 
 const languages = ref([
-  { name: 'Germeny', flag: '/assets/images/icon/flag-germeny.svg' },
-  { name: 'French', flag: '/assets/images/icon/flag-french.svg' },
-  { name: 'Bengali', flag: '/assets/images/icon/flag-bangla.svg' }
+  { name: "Germeny", flag: "/assets/images/icon/flag-germeny.svg" },
+  { name: "French", flag: "/assets/images/icon/flag-french.svg" },
+  { name: "Bengali", flag: "/assets/images/icon/flag-bangla.svg" },
 ]);
 
 const internalLinks = ref([
-  { name: 'FacebookPage', route: '/facebook', iconClass: 'bx bxl-facebook' },
-  { name: 'TwitterPage', route: '/twitter', iconClass: 'bx bxl-twitter' },
-  { name: 'LinkedInPage', route: '/linkedin', iconClass: 'bx bxl-linkedin' },
-  { name: 'InstagramPage', route: '/instagram', iconClass: 'bx bxl-instagram' }
+  { name: "FacebookPage", route: "/facebook", iconClass: "bx bxl-facebook" },
+  { name: "TwitterPage", route: "/twitter", iconClass: "bx bxl-twitter" },
+  { name: "LinkedInPage", route: "/linkedin", iconClass: "bx bxl-linkedin" },
+  { name: "InstagramPage", route: "/instagram", iconClass: "bx bxl-instagram" },
 ]);
 
 const menuItems = ref<(MenuItemWithoutChildren | MenuItemWithChildren)[]>([
-  { name: 'Home', to: '/', children: null },
+  { name: "Home", to: "/", children: null },
   {
-    name: 'Find Jobs',
+    name: "Find Jobs",
     children: [
-      { name: 'Job Category', to: '/category' },
-      { name: 'Job Listing 01', to: '/job-listing1' },
-      { name: 'Job Listing 02', to: '/job-listing2' },
-      { name: 'Job Details', to: '/job-details' }
-    ]
+      { name: "Job Category", to: "/category" },
+      { name: "Job Listing 01", to: "/job-listing1" },
+      { name: "Job Listing 02", to: "/job-listing2" },
+      { name: "Job Details", to: "/job-details" },
+    ],
   },
   {
-    name: 'Pages',
+    name: "Pages",
     children: [
-      { name: 'Candidate Dashboard', to: '/dashboard' },
-      { name: 'Post A Jobs', to: '/job-post' },
-      { name: 'Pricing Plan', to: '/pricing-plan' },
-      { name: 'FAQ', to: '/faq' },
-      { name: 'Checkout', to: '/checkout' },
-      { name: 'Error', to: '/error' },
-      { name: 'Login', to: '/login' },
-      { name: 'Register', to: '/register' }
-    ]
+      { name: "Candidate Dashboard", to: "/user/dashboard" },
+      { name: "Post A Jobs", to: "/job-post" },
+      { name: "Pricing Plan", to: "/pricing-plan" },
+      { name: "FAQ", to: "/faq" },
+      { name: "Checkout", to: "/checkout" },
+      { name: "Error", to: "/error" },
+      { name: "Login", to: "/login" },
+      { name: "Register", to: "/register" },
+    ],
   },
   {
-    name: 'Company',
+    name: "Company",
     children: [
-      { name: 'Company Listing 01', to: '/company-listing1' },
-      { name: 'Company Listing 02', to: '/company-listing2' },
-      { name: 'Company Details', to: '/company-details' },
-      { name: 'Company Dashboard', to: '/company-dashboard' }
-    ]
+      { name: "Company Listing 01", to: "/company-listing1" },
+      { name: "Company Listing 02", to: "/company-listing2" },
+      { name: "Company Details", to: "/company-details" },
+      { name: "Company Dashboard", to: "/company-dashboard" },
+    ],
   },
   {
-    name: 'Blog',
+    name: "Blog",
     children: [
-      { name: 'Blog Grid', to: '/blog-grid' },
-      { name: 'Blog Standard', to: '/blog-standard' },
-      { name: 'Blog Right Sidebar', to: '/blog-right-sidebar' },
-      { name: 'Blog Details', to: '/blog-details' }
-    ]
+      { name: "Blog Grid", to: "/blog-grid" },
+      { name: "Blog Standard", to: "/blog-standard" },
+      { name: "Blog Right Sidebar", to: "/blog-right-sidebar" },
+      { name: "Blog Details", to: "/blog-details" },
+    ],
   },
-  { name: 'Contact', to: '/contact', children: null }
+  { name: "Contact", to: "/contact", children: null },
 ]);
 
 const route = useRoute();
 
 const menuClass = (item: MenuItemWithoutChildren | MenuItemWithChildren) => ({
-  'menu-item': !item.children,
-  'menu-item-has-children': !!item.children,
-  'active': item.children === null && route.path === item.to
+  "menu-item": !item.children,
+  "menu-item-has-children": !!item.children,
+  active: item.children === null && route.path === item.to,
 });
 </script>
 <style></style>
