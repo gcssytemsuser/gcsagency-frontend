@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import DashboardSidebar from '../../components/DashboardSidebar.vue';
+import DashboardSidebar from '../../components/Dashboard/DashboardSidebar.vue';
 import DashboardLayout from '../../layout/DashboardLayout.vue';
 </script>
 

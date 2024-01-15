@@ -223,7 +223,7 @@ const menuItems = ref<(MenuItemWithoutChildren | MenuItemWithChildren)[]>([
       { name: "Job Category", to: "/category" },
       { name: "Job Listing 01", to: "/job-listing1" },
       { name: "Job Listing 02", to: "/job-listing2" },
-      { name: "Job Details", to: "/job-details" },
+      { name: "Job Details", to: "/job/details" },
     ],
   },
   {
