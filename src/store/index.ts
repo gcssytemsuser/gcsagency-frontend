@@ -1,3 +1,3 @@
-export { useUserStore } from './userStore';
-export { useAuthStore } from './authStore';
-export { useCompanyStore } from './companyStore';
+export { useUserStore } from './user/store';
+export { useAuthStore } from './auth/store';
+export { useCompanyStore } from './company/store';

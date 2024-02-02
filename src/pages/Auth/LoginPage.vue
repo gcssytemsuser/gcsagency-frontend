@@ -2,9 +2,9 @@
 import { ref } from 'vue';
 import AuthLayout from '../../layout/AuthLayout.vue';
 import { LoginPayload } from '../../types';
-import { useUserStore } from '../../store';
+import { useAuthStore } from '../../store';
 
-const store = useUserStore();
+const store = useAuthStore();
 
 const email = ref('');
 const password = ref('');

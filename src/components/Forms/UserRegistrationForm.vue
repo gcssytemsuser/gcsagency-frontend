@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useUserStore } from '../../store/userStore';
 import { UserRegisterPayload } from '../../types/userTypes';
 import { validateUserRegistrationData } from '../../utils/validation/registerValidation';
+import { useUserStore } from '../../store';
 
 const store = useUserStore();
 
@@ -140,4 +140,4 @@ const registerHandler = async (e: { preventDefault: () => void; }) => {
 </template>
 
 
-<style></style>
+<style></style>../../store/user/userStore
