@@ -12,7 +12,7 @@ import HomeLayout from '../layout/HomeLayout.vue'
                             <span></span>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
                                     <li class="breadcrumb-item active" aria-current="page">Contact</li>
                                 </ol>
                             </nav>
