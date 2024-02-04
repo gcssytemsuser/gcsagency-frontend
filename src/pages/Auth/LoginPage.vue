@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import AuthLayout from '../../layout/AuthLayout.vue';
 import { LoginPayload } from '../../types';
 import { useAuthStore } from '../../store';
+import router from '../../router';
 
 const store = useAuthStore();
 
@@ -13,9 +14,12 @@ const loginHandler = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     const payload: LoginPayload = { email: email.value, password: password.value };
     try {
-        await store.login(payload);
+        const success = await store.login(payload);
+        if (success) router.push({ name: 'home' })
     } catch (error) {
-        alert(error);
+        // alert(error);
+        console.log(error);
+
     }
 };
 

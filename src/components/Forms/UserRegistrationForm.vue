@@ -4,7 +4,12 @@ import { UserRegisterPayload } from '../../types/userTypes';
 import { validateUserRegistrationData } from '../../utils/validation/registerValidation';
 import { useUserStore } from '../../store';
 
+interface ErrorMessages {
+    [key: string]: string;
+}
 const store = useUserStore();
+const successMessage = ref('');
+const errorMessage = ref<ErrorMessages | string>('');
 
 const formData = ref({
     firstName: '',
@@ -17,6 +22,8 @@ const formData = ref({
 
 const registerHandler = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
+    successMessage.value = '';
+    errorMessage.value = '';
 
     const { isValid, errors } = validateUserRegistrationData(
         formData.value.firstName,
@@ -29,6 +36,7 @@ const registerHandler = async (e: { preventDefault: () => void; }) => {
 
     if (!isValid) {
         console.error("Validation errors:", errors);
+        errorMessage.value = errors;
         return;
     }
 
@@ -49,6 +57,9 @@ const registerHandler = async (e: { preventDefault: () => void; }) => {
 </script>
 
 <template>
+    <div v-if="successMessage" class="success-message">{{ successMessage }}</div>
+    <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
+
     <form>
         <div class="row">
             <div class="col-md-6">

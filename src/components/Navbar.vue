@@ -158,7 +158,11 @@
             </div>
           </li>
           <li class="d-md-flex d-none">
-            <div class="sign-in-btn">
+            <div v-if="authStore.isAuthenticated">
+              <p>{{ authStore.user && authStore?.user.first_name }}</p>
+              <button @click="logout">Logout</button>
+            </div>
+            <div v-else class="sign-in-btn">
               <router-link class="primry-btn-1 lg-btn" to="/login">
                 <svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -190,6 +194,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useRoute } from "vue-router";
+import { useAuthStore } from "../store";
 
 interface MenuItemWithoutChildren {
   name: string;
@@ -260,6 +265,11 @@ const menuItems = ref<(MenuItemWithoutChildren | MenuItemWithChildren)[]>([
 ]);
 
 const route = useRoute();
+const authStore = useAuthStore();
+
+function logout() {
+  authStore.logout();
+}
 
 const menuClass = (item: MenuItemWithoutChildren | MenuItemWithChildren) => ({
   "menu-item": !item.children,

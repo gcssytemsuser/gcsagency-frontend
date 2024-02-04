@@ -3,6 +3,7 @@ import authRoutes from './modules/authRoutes';
 import generalRoutes from './modules/generalRoutes';
 import userRoutes from './modules/userRoutes';
 import jobRoutes from './modules/jobRoutes';
+import { useAuthStore } from '../store';
 
 const routes: Array<RouteRecordRaw> = [
     ...authRoutes,
@@ -22,4 +23,19 @@ const router = createRouter({
     routes,
 });
 
+router.beforeEach(async (to, from, next) => {
+    const authStore = useAuthStore();
+
+    if (!authStore.isAuthenticated && authStore.token && to.meta.requiresAuth) {
+        try {
+            await authStore.fetchUserDetails();
+        } catch (error) {
+            return next('/login');
+        }
+    }
+
+    next(); // Proceed to route if no conditions above are met
+});
+
 export default router;
+

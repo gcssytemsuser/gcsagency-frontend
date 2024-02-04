@@ -11,7 +11,9 @@ export async function registerUser(payload: UserRegisterPayload) {
             email,
             password,
             username,
+            role_id: 1
         });
+        console.log('auth success', response.data);
 
         const authStore = useAuthStore();
         authStore.loginSuccess(response.data);
