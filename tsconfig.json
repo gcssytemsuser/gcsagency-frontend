@@ -6,6 +6,10 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
     "types": ["@vitejs/plugin-vue"],
+    "paths": {
+      "*": ["node_modules/*"]
+    },
+    "baseUrl": ".",
 
     /* Bundler mode */
     "moduleResolution": "bundler",

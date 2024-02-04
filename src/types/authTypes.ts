@@ -4,6 +4,7 @@ export interface LoginPayload {
 }
 export interface AuthState {
     isAuthenticated: boolean;
-    userData: Record<string, any> | null;
+    user: Record<string, any> | null;
+    token: null
 }
 
