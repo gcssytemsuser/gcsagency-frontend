@@ -2,8 +2,11 @@
 import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import HomeFooter from '../components/HomeFooter.vue';
-import Navbar from '../components/Navbar.vue';
+import Navbar from '../components/Navbar/Navbar.vue';
+import { useAuthStore } from '../store';
+import AuthenticatedNavbar from '../components/Navbar/AuthenticatedNavbar.vue';
 
+const store = useAuthStore()
 const route = useRoute();
 const title = ref(route.meta.title || 'Job');
 
@@ -13,7 +16,8 @@ watch(() => route.meta, (newMeta) => {
 }, { immediate: true });
 </script>
 <template>
-    <Navbar />
+    <AuthenticatedNavbar v-if="store.isAuthenticated" />
+    <Navbar v-else />
     <!-- ========== Inner Banner Start============= -->
     <div class="inner-banner">
         <div class="container">
