@@ -366,10 +366,9 @@ const menuItems = ref<(MenuItemWithoutChildren | MenuItemWithChildren)[]>([
     {
         name: "Company",
         children: [
-            { name: "Company Listing 01", to: "/company-listing1" },
-            { name: "Company Listing 02", to: "/company-listing2" },
-            { name: "Company Details", to: "/company-details" },
-            { name: "Company Dashboard", to: "/company-dashboard" },
+            { name: "Company Listing", to: "/company" },
+            { name: "Company Details", to: "/company/details" },
+            { name: "Company Dashboard", to: "/company/dashboard" },
         ],
     },
     {

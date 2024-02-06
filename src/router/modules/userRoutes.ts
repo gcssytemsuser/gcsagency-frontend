@@ -7,7 +7,7 @@ const userRoutes: Array<RouteRecordRaw> = [
     {
         path: '/user',
         name: 'user',
-        component: () => import('../../layout/DashboardLayout.vue'),
+        component: () => import('../../layout/UserDashboardLayout.vue'),
         meta: { requiresAuth: true, title: 'Dashboard' },
         children: [
             {

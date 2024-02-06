@@ -3,6 +3,7 @@ import authRoutes from './modules/authRoutes';
 import generalRoutes from './modules/generalRoutes';
 import userRoutes from './modules/userRoutes';
 import jobRoutes from './modules/jobRoutes';
+import companyRoutes from './modules/companyRoutes'
 import { useAuthStore } from '../store';
 
 const routes: Array<RouteRecordRaw> = [
@@ -10,6 +11,7 @@ const routes: Array<RouteRecordRaw> = [
     ...generalRoutes,
     ...userRoutes,
     ...jobRoutes,
+    ...companyRoutes,
     {
         path: '/:pathMatch(.*)*',
         name: 'notFound',

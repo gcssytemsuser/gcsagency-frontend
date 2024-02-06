@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import AuthenticatedNavbar from '../components/Navbar/AuthenticatedNavbar.vue';
+import Navbar from '../components/Navbar/Navbar.vue';
 </script>
 <template>
-    <AuthenticatedNavbar />
+    <Navbar />
     <slot />
 
     <footer class="footer2">
