@@ -8,6 +8,11 @@ export const useAuthStore = defineStore("auth", {
     user: null,
     token: null
   }),
+  getters: {
+    getToken: state => {
+      return state.token;
+    }
+  },
   actions: {
     loginSuccess(loginData: AuthState) {
       loginSuccess(this, loginData);

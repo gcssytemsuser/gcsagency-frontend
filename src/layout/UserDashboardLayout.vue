@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import DashboardSidebar from '../components/Dashboard/DashboardSidebar.vue';
+import DashboardSidebar from '../components/UserDashboard/DashboardSidebar.vue';
 import HomeFooter from '../components/HomeFooter.vue';
 import AuthenticatedNavbar from '../components/Navbar/AuthenticatedNavbar.vue';
 import Navbar from '../components/Navbar/Navbar.vue';

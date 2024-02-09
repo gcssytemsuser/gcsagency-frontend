@@ -15,6 +15,12 @@ const userRoutes: Array<RouteRecordRaw> = [
                 name: 'userDashboard',
                 component: () => import('../../pages/User/DashboardPage.vue'),
                 meta: { requiresAuth: true, title: 'Dashboard' } as RouteMeta
+            },
+            {
+                path: 'profile',
+                name: 'userProfile',
+                component: () => import('../../pages/User/UserProfilePage.vue'),
+                meta: { requiresAuth: true, title: 'Profile' } as RouteMeta
             }
         ]
     },
