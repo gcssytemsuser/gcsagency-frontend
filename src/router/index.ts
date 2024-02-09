@@ -3,6 +3,7 @@ import authRoutes from './modules/authRoutes';
 import generalRoutes from './modules/generalRoutes';
 import userRoutes from './modules/userRoutes';
 import jobRoutes from './modules/jobRoutes';
+import companyRoutes from './modules/companyRoutes'
 import { useAuthStore } from '../store';
 
 const routes: Array<RouteRecordRaw> = [
@@ -10,6 +11,7 @@ const routes: Array<RouteRecordRaw> = [
     ...generalRoutes,
     ...userRoutes,
     ...jobRoutes,
+    ...companyRoutes,
     {
         path: '/:pathMatch(.*)*',
         name: 'notFound',
@@ -26,16 +28,24 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
     const authStore = useAuthStore();
 
-    if (!authStore.isAuthenticated && authStore.token && to.meta.requiresAuth) {
-        try {
-            await authStore.fetchUserDetails();
-        } catch (error) {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        if (authStore.isAuthenticated) {
+            return next();
+        } else if (authStore.token) {
+            try {
+                await authStore.fetchUserDetails();
+                return next();
+            } catch (error) {
+                return next('/login');
+            }
+        } else {
             return next('/login');
         }
+    } else {
+        next();
     }
-
-    next(); // Proceed to route if no conditions above are met
 });
+
 
 export default router;
 

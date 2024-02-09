@@ -1,10 +1,16 @@
 <script setup lang="ts">
-import Navbar from '../components/Navbar.vue';
 import HomeFooter from '../components/HomeFooter.vue';
+import AuthenticatedNavbar from '../components/Navbar/AuthenticatedNavbar.vue';
+import Navbar from '../components/Navbar/Navbar.vue';
+import { useAuthStore } from '../store';
+
+const store = useAuthStore();
 </script>
 <template>
-    <Navbar />
+    <AuthenticatedNavbar v-if="store.isAuthenticated" />
+    <Navbar v-else />
     <slot />
+    <RouterView></RouterView>
     <HomeFooter />
 </template>
 
