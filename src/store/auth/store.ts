@@ -1,11 +1,10 @@
 import { defineStore } from "pinia";
 import { AuthState, LoginPayload } from "../../types";
-import { loginSuccess, login, logout, fetchUserDetails } from "./actions";
+import { loginSuccess, login, logout } from "./actions";
 
 export const useAuthStore = defineStore("auth", {
   state: (): AuthState => ({
     isAuthenticated: false,
-    user: null,
     token: null
   }),
   getters: {
@@ -22,9 +21,6 @@ export const useAuthStore = defineStore("auth", {
     },
     logout() {
       logout(this);
-    },
-    fetchUserDetails() {
-      fetchUserDetails(this);
     }
   },
   persist: {

@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import { UserRegisterPayload } from '../../types/userTypes';
 import { validateUserRegistrationData } from '../../utils/validation/registerValidation';
 import { useUserStore } from '../../store';
+import router from '../../router';
 
 interface ErrorMessages {
     [key: string]: string;
@@ -12,8 +13,8 @@ const successMessage = ref('');
 const errorMessage = ref<ErrorMessages | string>('');
 
 const formData = ref({
-    firstName: '',
-    lastName: '',
+    first_name: '',
+    last_name: '',
     username: '',
     email: '',
     password: '',
@@ -26,8 +27,8 @@ const registerHandler = async (e: { preventDefault: () => void; }) => {
     errorMessage.value = '';
 
     const { isValid, errors } = validateUserRegistrationData(
-        formData.value.firstName,
-        formData.value.lastName,
+        formData.value.first_name,
+        formData.value.last_name,
         formData.value.username,
         formData.value.email,
         formData.value.password,
@@ -41,15 +42,16 @@ const registerHandler = async (e: { preventDefault: () => void; }) => {
     }
 
     const payload: UserRegisterPayload = {
-        firstName: formData.value.firstName,
-        lastName: formData.value.lastName,
+        first_name: formData.value.first_name,
+        last_name: formData.value.last_name,
         username: formData.value.username,
         email: formData.value.email,
         password: formData.value.password,
     };
 
     try {
-        await store.register(payload);
+        const response = await store.register(payload);
+        if (response) router.push({ name: 'home' })
     } catch (error) {
         console.error("Registration failed:", error);
     }
@@ -64,20 +66,21 @@ const registerHandler = async (e: { preventDefault: () => void; }) => {
         <div class="row">
             <div class="col-md-6">
                 <div class="form-inner mb-25">
-                    <label for="firstname1">First Name*</label>
+                    <label for="first_name1">First Name*</label>
                     <div class="input-area">
                         <img src="/assets/images/icon/user-2.svg" alt="">
-                        <input type="text" id="firstname1" name="firstname1" v-model="formData.firstName"
+                        <input type="text" id="first_name1" name="first_name1" v-model="formData.first_name"
                             placeholder="Mr. Robert">
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-inner mb-25">
-                    <label for="lastname1">Last Name*</label>
+                    <label for="last_name1">Last Name*</label>
                     <div class="input-area">
                         <img src="/assets/images/icon/user-2.svg" alt="">
-                        <input type="text" id="lastname1" name="lastname1" v-model="formData.lastName" placeholder="Jonson">
+                        <input type="text" id="last_name1" name="last_name1" v-model="formData.last_name"
+                            placeholder="Jonson">
                     </div>
                 </div>
             </div>
