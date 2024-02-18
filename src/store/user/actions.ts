@@ -1,5 +1,5 @@
 import { useAuthStore } from "..";
-import { UserRegisterPayload, UserSocialNetworkPayload, UserDataPayload } from "../../types";
+import { UserDataPayload, UserRegisterPayload, UserSocialNetworkPayload } from "../../types";
 import axios_custom from "../../utils/axios_custom";
 
 export async function registerUser(payload: UserRegisterPayload) {
@@ -13,10 +13,11 @@ export async function registerUser(payload: UserRegisterPayload) {
             username,
             role_id: 1
         });
-        console.log('auth success', response.data);
-        alert(response?.data.message);
-        const authStore = useAuthStore();
-        authStore.loginSuccess(response.data);
+
+        const { message } = response?.data;
+        alert(message);
+        // authStore.loginSuccess(data);
+        // useUserStore().setUser(data)
         return true;
     } catch (error) {
         console.error("Registration failed:", error);
@@ -60,7 +61,9 @@ export async function updateProfile(state: any, payload: UserDataPayload) {
 
         });
         console.log('Update success', response.data);
-        state.setUser(response.data)
+        const { data, message } = response.data
+        alert(message);
+        state.setUser(data)
     } catch (error) {
         console.error("Registration failed:", error);
         throw error;
@@ -80,6 +83,7 @@ export async function addOrUpdateSocialNetwork(payload: UserSocialNetworkPayload
             behance: payload.behance
         });
         console.log('Update success', response.data);
+        alert(response?.data.message);
     } catch (error) {
         console.error("Registration failed:", error);
         throw error;

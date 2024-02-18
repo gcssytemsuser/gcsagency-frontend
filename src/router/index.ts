@@ -4,7 +4,7 @@ import generalRoutes from './modules/generalRoutes';
 import userRoutes from './modules/userRoutes';
 import jobRoutes from './modules/jobRoutes';
 import companyRoutes from './modules/companyRoutes'
-import { useAuthStore } from '../store';
+import { useAuthStore, useUserStore } from '../store';
 
 const routes: Array<RouteRecordRaw> = [
     ...authRoutes,
@@ -33,7 +33,7 @@ router.beforeEach(async (to, from, next) => {
             return next();
         } else if (authStore.token) {
             try {
-                await authStore.fetchUserDetails();
+                await useUserStore().fetchUserDetails();
                 return next();
             } catch (error) {
                 return next('/login');

@@ -51,7 +51,8 @@ const registerHandler = async (e: { preventDefault: () => void; }) => {
 
     try {
         const response = await store.register(payload);
-        if (response) router.push({ name: 'home' })
+        // if (response) router.push({ name: 'home' })
+        if (response) router.push({ name: 'login' })
     } catch (error) {
         console.error("Registration failed:", error);
     }

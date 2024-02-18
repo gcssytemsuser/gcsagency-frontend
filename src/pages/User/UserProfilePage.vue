@@ -23,7 +23,17 @@ const form = reactive({
     description: user?.description || ''
 });
 
+console.log(user);
 
+
+// "current_company": "Example Company",
+//   "designation": "Software Developer",
+//   "year_of_exps": "5",
+//   "qualification": "Bachelor's Degree in Computer Science",
+//   "phone_number": "1234567890",
+//   "languages": "English, Spanish",
+//   "career_obj": "Seeking a challenging position to utilize my skills.",
+//   "website_link": "http://example.com"
 
 const socialForm: UserSocialNetworkPayload = reactive({
     "facebook": "",
@@ -58,7 +68,7 @@ function handleUpdateSocialLink(e: { preventDefault: () => void; }) {
                             <label>First Name*</label>
                             <div class="input-area">
                                 <img src="/assets/images/icon/user-2.svg" alt="">
-                                <input type="text" v-model="form?.first_name" placeholder="Mr. Robert">
+                                <input type="text" v-model="form.first_name" placeholder="Mr. Robert">
                             </div>
                         </div>
                     </div>
@@ -67,7 +77,7 @@ function handleUpdateSocialLink(e: { preventDefault: () => void; }) {
                             <label>Your Age*</label>
                             <div class="input-area">
                                 <img src="/assets/images/icon/clock-2.svg " alt="">
-                                <input type="text" v-model="form?.age" placeholder="21 Years">
+                                <input type="text" v-model="form.age" placeholder="21 Years">
                             </div>
                         </div>
                     </div>
@@ -76,7 +86,7 @@ function handleUpdateSocialLink(e: { preventDefault: () => void; }) {
                             <label>Current Location*</label>
                             <div class="input-area">
                                 <img src="/assets/images/icon/map-2.svg" alt="">
-                                <input type="text" v-model="form?.current_location" placeholder="Mirpur, Dhaka">
+                                <input type="text" v-model="form.current_location" placeholder="Mirpur, Dhaka">
                             </div>
                         </div>
                     </div>
@@ -85,7 +95,7 @@ function handleUpdateSocialLink(e: { preventDefault: () => void; }) {
                             <label>Phone Number*</label>
                             <div class="input-area">
                                 <img src="/assets/images/icon/phone-2.svg" alt="">
-                                <input type="text" v-model="form?.phone_number" placeholder="+880-17 *** *** **">
+                                <input type="text" v-model="form.phone_number" placeholder="+880-17 *** *** **">
                             </div>
                         </div>
                     </div>
@@ -94,7 +104,7 @@ function handleUpdateSocialLink(e: { preventDefault: () => void; }) {
                             <label>Email*</label>
                             <div class="input-area">
                                 <img src="/assets/images/icon/email-2.svg" alt="">
-                                <input type="email" v-model="form?.email" placeholder="info@example.com">
+                                <input type="email" v-model="form.email" placeholder="info@example.com">
                             </div>
                         </div>
                     </div>
@@ -103,7 +113,7 @@ function handleUpdateSocialLink(e: { preventDefault: () => void; }) {
                             <label>Website Link*</label>
                             <div class="input-area">
                                 <img src="/assets/images/icon/website-2.svg" alt="">
-                                <input type="text" v-model="form?.website_link" placeholder="https://example.com">
+                                <input type="text" v-model="form.website_link" placeholder="https://example.com">
                             </div>
                         </div>
                     </div>
@@ -112,7 +122,7 @@ function handleUpdateSocialLink(e: { preventDefault: () => void; }) {
                             <label>Current Job Place*</label>
                             <div class="input-area">
                                 <img src="/assets/images/icon/company-2.svg" alt="">
-                                <input type="text" v-model="form?.current_company" placeholder="Company Name">
+                                <input type="text" v-model="form.current_company" placeholder="Company Name">
                             </div>
                         </div>
                     </div>
@@ -121,7 +131,7 @@ function handleUpdateSocialLink(e: { preventDefault: () => void; }) {
                             <label>Designation*</label>
                             <div class="input-area">
                                 <img src="/assets/images/icon/designation-2.svg" alt="">
-                                <input type="text" v-model="form?.designation" placeholder="UI/UX Engineer">
+                                <input type="text" v-model="form.designation" placeholder="UI/UX Engineer">
                             </div>
                         </div>
                     </div>
@@ -130,7 +140,7 @@ function handleUpdateSocialLink(e: { preventDefault: () => void; }) {
                             <label>Qualification*</label>
                             <div class="input-area">
                                 <img src="/assets/images/icon/qualification-2.svg" alt="">
-                                <select class="select1" v-model="form?.qualification">
+                                <select class="select1" v-model="form.qualification">
                                     <option value="0">Bachelor Degree in CSE</option>
                                     <option value="1">IGCSE</option>
                                     <option value="2">AS</option>
@@ -145,7 +155,7 @@ function handleUpdateSocialLink(e: { preventDefault: () => void; }) {
                             <label>Language*</label>
                             <div class="input-area">
                                 <img src="/assets/images/icon/language-2.svg" alt="">
-                                <select class="select1" v-model="form?.qualification">
+                                <select class="select1" v-model="form.languages">
                                     <option value="0">Bangla</option>
                                     <option value="1">English</option>
                                     <option value="2">Spanish</option>
@@ -157,7 +167,7 @@ function handleUpdateSocialLink(e: { preventDefault: () => void; }) {
                     <div class="col-md-12">
                         <div class="form-inner mb-50">
                             <label>Description*</label>
-                            <textarea v-model="form?.description"
+                            <textarea v-model="form.description"
                                 placeholder="Write something about yourself.........."></textarea>
                         </div>
                     </div>

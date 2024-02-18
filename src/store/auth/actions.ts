@@ -11,13 +11,14 @@ export async function login(state: any, { email, password }: LoginPayload) {
     const userStore = useUserStore();
     try {
         const response = await axios_custom.post("login", { email, password });
-        const { data, message } = response?.data;
+        const { data: { user, token }, message } = response?.data;
         alert(message);
-        state.loginSuccess({ token: data?.token });
-        userStore.setUser({ ...data?.user });
+        state.loginSuccess({ token: token });
+        userStore.setUser({ ...user });
         return true;
     } catch (error) {
         console.error("Login failed:", error);
+        alert("Login failed");
         // throw error;
         return false;
     }
