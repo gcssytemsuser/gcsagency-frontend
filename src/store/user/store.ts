@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { UserDataPayload, UserRegisterPayload, UserSocialNetworkPayload } from "../../types";
 import { addOrUpdateSocialNetwork, fetchUserDetails, registerUser, updateProfile } from "./actions";
-import { setUser } from "./setter";
+import { setSocial, setUser } from "./setter";
 
 export const useUserStore = defineStore("user", {
   state: () => ({
@@ -21,9 +21,18 @@ export const useUserStore = defineStore("user", {
       website_link: '',
       description: ''
     },
+    social: {
+      facebook: '',
+      twitter: '',
+      linkedIn: '',
+      pinterest: '',
+      dribbble: '',
+      behance: ''
+    },
   }),
   getters: {
     getUser: (state) => state.user,
+    getSocial: (state) => state.social,
   },
   actions: {
     async register(payload: UserRegisterPayload) {
@@ -40,6 +49,9 @@ export const useUserStore = defineStore("user", {
     },
     async setUser(payload: UserDataPayload) {
       await setUser(this, payload);
+    },
+    async setSocial(payload: UserSocialNetworkPayload) {
+      await setSocial(this, payload);
     }
   },
   persist: {

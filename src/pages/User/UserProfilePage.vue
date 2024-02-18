@@ -5,6 +5,7 @@ import { UserSocialNetworkPayload } from '../../types/userTypes';
 
 const userStore = useUserStore();
 const user = userStore?.getUser;
+const social = userStore?.getSocial;
 
 const form = reactive({
     first_name: user?.first_name || '',
@@ -23,25 +24,13 @@ const form = reactive({
     description: user?.description || ''
 });
 
-console.log(user);
-
-
-// "current_company": "Example Company",
-//   "designation": "Software Developer",
-//   "year_of_exps": "5",
-//   "qualification": "Bachelor's Degree in Computer Science",
-//   "phone_number": "1234567890",
-//   "languages": "English, Spanish",
-//   "career_obj": "Seeking a challenging position to utilize my skills.",
-//   "website_link": "http://example.com"
-
 const socialForm: UserSocialNetworkPayload = reactive({
-    "facebook": "",
-    "twitter": "",
-    "linkedIn": "",
-    "pinterest": "",
-    "dribbble": "",
-    "behance": ""
+    "facebook": social?.facebook,
+    "twitter": social?.twitter,
+    "linkedIn": social?.linkedIn,
+    "pinterest": social?.pinterest,
+    "dribbble": social?.dribbble,
+    "behance": social?.behance
 })
 
 function handleProfileUpdate(e: { preventDefault: () => void; }) {

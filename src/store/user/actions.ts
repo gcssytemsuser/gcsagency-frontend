@@ -1,4 +1,4 @@
-import { useAuthStore } from "..";
+import { useAuthStore, useUserStore } from "..";
 import { UserDataPayload, UserRegisterPayload, UserSocialNetworkPayload } from "../../types";
 import axios_custom from "../../utils/axios_custom";
 
@@ -82,8 +82,10 @@ export async function addOrUpdateSocialNetwork(payload: UserSocialNetworkPayload
             dribbble: payload.dribbble,
             behance: payload.behance
         });
-        console.log('Update success', response.data);
-        alert(response?.data.message);
+        const { data, message } = response?.data
+        console.log('Update success', data);
+        alert(message);
+        useUserStore().setSocial({ ...data });
     } catch (error) {
         console.error("Registration failed:", error);
         throw error;
